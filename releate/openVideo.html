@@ -3,13 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>打开摄像头，并获取拍摄的信息</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , maximum-scale=1 , user-scalable=no">
     <style>
+        @media  screen and (max-width: 299px) {
+            html{
+                font-size: 70px;
+            }
+        }
+        @media  screen and (min-width: 300px) {
+            html{
+                font-size: 80px;
+            }
+        }
+        @media  screen and (min-width: 350px) {
+            html{
+                font-size: 90px;
+            }
+        }
+
+        @media  screen and (min-width: 370px) {
+            html{
+                font-size: 100px;
+            }
+        }
+
+        @media screen and (min-width: 375px) {
+            html{
+                font-size: 26.66666667vw;
+            }
+        }
         .booth {
-            width:400px;
+            width:3rem;
             position: relative;
             background:#ccc;
-            border: 10px solid #ddd;
+            border: 0.1rem solid #ddd;
             margin: 0 auto;
+            font-size: 0;
+        }
+        #video,
+        #canvas{
+            width: 3rem;
+            height: 2rem;
         }
         #canvas{
             position: absolute;
@@ -17,13 +52,19 @@
             left: 0;
             z-index: -10;
         }
+        #downloadBtn{
+            font-size: 0.14rem;
+        }
+        #tack{
+            font-size: 0.14rem;
+        }
     </style>
 </head>
 <body>
 <div class="booth">
-    <video id="video" width="400" height="300"></video>
-    <button id='tack'> snap shot</button>
-    <canvas id='canvas' width='400' height='300'></canvas>
+    <video id="video"></video>
+    <button id='tack'>拍摄</button>
+    <canvas id='canvas'></canvas>
     <img id='img' src=''>
     <a id="downloadBtn" download="video.png">另存为</a>
 </div>
@@ -55,7 +96,7 @@
 
 
         //绘制canvas图形
-        canvas.getContext('2d').drawImage(video, 0, 0, 400, 300);
+        canvas.getContext('2d').drawImage(video, 0, 0, 300, 200);
         console.log( canvas.toDataURL("image/png") );
         downBtn.href = canvas.toDataURL("image/png");
         //把canvas图像转为img图片
