@@ -6,49 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1 , maximum-scale=1 , user-scalable=no">
     <style>
-        @media  screen and (max-width: 299px) {
-            html{
-                font-size: 70px;
-            }
-        }
-        @media  screen and (min-width: 300px) {
-            html{
-                font-size: 80px;
-            }
-        }
-        @media  screen and (min-width: 350px) {
-            html{
-                font-size: 90px;
-            }
-        }
-
-        @media  screen and (min-width: 370px) {
-            html{
-                font-size: 100px;
-            }
-        }
-
-        @media screen and (min-width: 375px) {
-            html{
-                font-size: 26.66666667vw;
-            }
-        }
         .booth {
-            width:3rem;
+            width:400px;
             position: relative;
             background:#ccc;
-            border: 0.1rem solid #ddd;
+            border: 10px solid #ddd;
             margin: 0 auto;
             font-size: 0;
-        }
-        #video{
-            width: 3rem;
-            height: 2rem;
-        }
-        #img,
-        #canvas{
-            width: 2.6rem;
-            height: 1.6rem;
         }
         #canvas{
             position: absolute;
@@ -56,19 +20,17 @@
             left: 0;
             z-index: -10;
         }
-        #downloadBtn{
-            font-size: 0.14rem;
-        }
+        #downloadBtn,
         #tack{
-            font-size: 0.14rem;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 <div class="booth">
-    <video id="video"></video>
+    <video id="video" width="400" height="300"></video>
     <button id='tack'>拍摄</button>
-    <canvas id='canvas'></canvas>
+    <canvas id='canvas' width="400" height="300"></canvas>
     <img id='img' src=''><br>
     <a id="downloadBtn" download="video.png">另存为</a>
 </div>
