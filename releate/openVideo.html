@@ -6,10 +6,16 @@
     <style>
         .booth {
             width:400px;
-
+            position: relative;
             background:#ccc;
             border: 10px solid #ddd;
             margin: 0 auto;
+        }
+        #canvas{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -10;
         }
     </style>
 </head>
@@ -19,17 +25,19 @@
     <button id='tack'> snap shot</button>
     <canvas id='canvas' width='400' height='300'></canvas>
     <img id='img' src=''>
+    <a id="downloadBtn" download="video.png">另存为</a>
 </div>
 <script type="text/javascript">
     var video = document.getElementById('video'),
         canvas = document.getElementById('canvas'),
         snap = document.getElementById('tack'),
         img = document.getElementById('img'),
+        downBtn = document.getElementById('downloadBtn'),
         vendorUrl = window.URL || window.webkitURL;
 
     //媒体对象
     navigator.getMedia = navigator.getUserMedia ||
-        navagator.webkitGetUserMedia ||
+        navigator.webkitGetUserMedia ||
         navigator.mozGetUserMedia ||
         navigator.msGetUserMedia;
     navigator.getMedia({
@@ -45,9 +53,11 @@
     });
     snap.addEventListener('click', function(){
 
+
         //绘制canvas图形
         canvas.getContext('2d').drawImage(video, 0, 0, 400, 300);
-
+        console.log( canvas.toDataURL("image/png") );
+        downBtn.href = canvas.toDataURL("image/png");
         //把canvas图像转为img图片
         img.src = canvas.toDataURL("image/png");
 
